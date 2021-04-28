@@ -4,9 +4,27 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>groupId</groupId>
+    <groupId>cn.qixqi.pan</groupId>
     <artifactId>pan.qixqi.cn-services</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
+    <!-- pan.qixqi.cn-services 作为父类型，使用pom打包 -->
+    <packaging>pom</packaging>
+
+    <name>pan-parent-pom</name>
+    <description>The Parent Pom for the cn.qixqi.pan project</description>
+
+
+    <!-- 导入模块服务，模块以 jar方式打包 -->
+    <modules>
+        <module>authentication-service</module>
+        <module>conf-service</module>
+        <module>eureka-service</module>
+        <module>file-system-service</module>
+        <module>user-service</module>
+        <module>zipkin-service</module>
+        <module>zuul-service</module>
+    </modules>
+
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
