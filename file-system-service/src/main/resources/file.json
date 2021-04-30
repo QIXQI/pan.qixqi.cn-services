@@ -1,0 +1,34 @@
+[
+  {
+    "file_id": "0e89415c-2a0c-45fb-a088-3464b2ba6e0f",
+    "file_name": "test1.txt",
+    "file_type": "文本文档 (.txt)",
+    "file_size": 78848,
+    "link_count": 0,
+    "create_time": 1619794724945
+  },
+  {
+    "file_id": "efd9f8c7-e4df-4764-952a-9ef542660954",
+    "file_name": "test2.zip",
+    "file_type": "WinRAR ZIP 压缩文件 (.zip)",
+    "file_size": 38155018240,
+    "link_count": 0,
+    "create_time": 1619796288945
+  },
+  {
+    "file_id": "f262317f-6eec-49bf-826f-dd35eca82568",
+    "file_name": "filename_H128PIC.jpg",
+    "file_type": "JPG 文件 (.jpg)",
+    "file_size": 4723507,
+    "link_count": 0,
+    "create_time": 1619796443944
+  },
+  {
+    "file_id": "c47c0b7d-0413-4f3d-ab1c-bb47133eb4c4",
+    "file_name": "560f_075e_535f_ae15cebedc04c39f79f6d5ac577f2977.mp3",
+    "file_type": "MP3 文件 (.mp3)",
+    "file_size": 4314218,
+    "link_count": 0,
+    "create_time": 1619796622655
+  }
+]
