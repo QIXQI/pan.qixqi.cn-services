@@ -13,22 +13,64 @@
     <name>pan-parent-pom</name>
     <description>The Parent Pom for the cn.qixqi.pan project</description>
 
+    <!-- 父依赖 -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.4.5</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+
+    <!-- 引入所需依赖 -->
+    <!-- 根目录没有SpringBootApplication，依赖注入到服务模块中即可
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+    -->
+
 
     <!-- 导入模块服务，模块以 jar方式打包 -->
     <modules>
-        <module>authentication-service</module>
-        <module>conf-service</module>
-        <module>eureka-service</module>
-        <module>file-system-service</module>
+<!--        <module>authentication-service</module>-->
+<!--        <module>conf-service</module>-->
+<!--        <module>eureka-service</module>-->
+<!--        <module>file-system-service</module>-->
         <module>user-service</module>
-        <module>zipkin-service</module>
-        <module>zuul-service</module>
+<!--        <module>zipkin-service</module>-->
+<!--        <module>zuul-service</module>-->
     </modules>
 
 
     <properties>
+        <java.version>1.8</java.version>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
+
+
+    <build>
+        <plugins>
+            <!-- 主模块中没有对应的引导类，不能添加 spring-boot-maven-plugin -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.4.5</version>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
     
 </project>
