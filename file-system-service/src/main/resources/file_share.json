@@ -3,17 +3,18 @@
     "share_id": "080516b2-49bd-48e7-b2ea-24046882d596",
     "share_pass": "03a4",
     "uid": "f3831f8c-c338-4ebe-a82a-e2fc1d1ff78a",
-    "folder_id": "7616b8db-fa5b-48a2-a2ec-4ac839cbf4b7",
-    "link_id": "fe94fc88-0e89-47c5-bb3c-50f31110c8f7",
+    "root_id": "15cafc9e-3f8f-45c5-a0d5-62f840519b9a",
     "create_time": 1619801056654,
     "active_time": 7
   },
+
+
+
   {
     "share_id": "e195f339-f20e-4694-a156-e0fc5bd9af2f",
     "share_pass": "ef24",
     "uid": "f3831f8c-c338-4ebe-a82a-e2fc1d1ff78a",
-    "folder_id": "963c0d1e-9b18-46f5-aa33-e6cb228b51c2",
-    "link_id": null,
+    "root_id": "",
     "create_time": 1619801131667,
     "active_time": 7
   }
