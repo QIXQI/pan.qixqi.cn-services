@@ -3,12 +3,12 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>cn.qixqi.pan</groupId>
-  <artifactId>zipkin-service</artifactId>
+  <artifactId>zipkinsvr</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>zipkin-service</name>
-  <description>Zipkin Service</description>
+  <name>zipkinsvr</name>
+  <description>Zipkin Server</description>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

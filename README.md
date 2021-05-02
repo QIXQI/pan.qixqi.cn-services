@@ -26,5 +26,11 @@
 * file_link表：为了避免表的join，采用反范式编程，通过一些数据冗余，以空间换取时间，提高性能
 * [TODO] file_share表：没有采用数据冗余，逻辑上与 file_link 表join
 
+#### 文件信息使用 mongodb存储
+* 使用 json文件，初始化mongodb，两点改动：
+    * 键值采用驼峰式
+    * 新加 "_class"字段，并且最后mongodb中也保留此字段，据我思考，是因为mongodb是NoSQL，每条文档，都可以有不同的 "_class"类解析，还是很有必要的
+    * [TODO] 由于json文件的每个对象，均可以存在关系型数据库中，可以设计自己的解析类，取消 "_class"字段存到mongodb中，节省空间
+
 ## TODO
 1. user表不与user_status，user_priority连接，返回响应信息，目前在配置类中实现

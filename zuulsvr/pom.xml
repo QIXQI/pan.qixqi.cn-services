@@ -3,12 +3,12 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>cn.qixqi.pan</groupId>
-  <artifactId>zuul-service</artifactId>
+  <artifactId>zuulsvr</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>zuul-service</name>
-  <description>Zuul Service</description>
+  <name>zuulsvr</name>
+  <description>Zuul Server</description>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

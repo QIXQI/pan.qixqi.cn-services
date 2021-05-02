@@ -1,0 +1,16 @@
+example:
+  property: "This is default property"
+server:
+  port: 9090
+# mongo3.0 以上，host和port配置不支持，必须使用uri配置所有信息
+spring:
+  data:
+    mongodb:
+      uri: mongodb://admin:1214@ping.qixqi.cn:27017/pan?authSource=admin
+# 是否初始化 mongodb
+# TODO: 初始化时，删除以前的数据
+db:
+  mongodb:
+    rebuild: false
+    init:
+      file: "file.json"

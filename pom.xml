@@ -42,12 +42,13 @@
     <!-- 导入模块服务，模块以 jar方式打包 -->
     <modules>
 <!--        <module>authentication-service</module>-->
-<!--        <module>conf-service</module>-->
-<!--        <module>eureka-service</module>-->
-<!--        <module>file-system-service</module>-->
+        <module>confsvr</module>
+<!--        <module>eurekasvr</module>-->
+<!--        <module>zipkinsvr</module>-->
+<!--        <module>zuulsvr</module>-->
         <module>user-service</module>
-<!--        <module>zipkin-service</module>-->
-<!--        <module>zuul-service</module>-->
+        <module>file-system-service</module>
+<!--        <module>test-service</module>-->
     </modules>
 
 
