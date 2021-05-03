@@ -14,3 +14,4 @@ db:
     rebuild: false
     init:
       file: "file.json"
+      folder_link: "folder_link.json"

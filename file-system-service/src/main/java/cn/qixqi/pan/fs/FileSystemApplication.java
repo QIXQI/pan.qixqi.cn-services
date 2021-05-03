@@ -24,9 +24,12 @@ public class FileSystemApplication {
     public Jackson2RepositoryPopulatorFactoryBean repositoryPopulator(){
         Jackson2RepositoryPopulatorFactoryBean factory = new Jackson2RepositoryPopulatorFactoryBean();
         if (config.isDbMongoRebuild()){
-            // 重新生成数据库
-            Resource initData = new ClassPathResource(config.getDbMongoInitFile());
-            factory.setResources(new Resource[]{initData});
+            // 重新生成集合
+            // 初始化文件实体
+            Resource initFile = new ClassPathResource(config.getDbMongoInitFile());
+            // 初始化文件夹链接
+            Resource initFolderLink = new ClassPathResource(config.getDbMongoInitFolderLink());
+            factory.setResources(new Resource[]{initFile, initFolderLink});
         } else {
             factory.setResources(new Resource[]{});
         }
