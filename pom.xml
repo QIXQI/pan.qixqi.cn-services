@@ -43,7 +43,7 @@
     <modules>
 <!--        <module>authentication-service</module>-->
         <module>confsvr</module>
-<!--        <module>eurekasvr</module>-->
+        <module>eurekasvr</module>
 <!--        <module>zipkinsvr</module>-->
 <!--        <module>zuulsvr</module>-->
         <module>user-service</module>
