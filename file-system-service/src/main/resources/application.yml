@@ -15,3 +15,13 @@ db:
     init:
       file: "file.json"
       folder_link: "folder_link.json"
+
+# Spring Actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"    # 暴露所有端点
+  endpoint:
+    shutdown:
+      enabled: true     # get请求不行，post可以
