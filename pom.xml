@@ -45,7 +45,7 @@
         <module>confsvr</module>
         <module>eurekasvr</module>
 <!--        <module>zipkinsvr</module>-->
-<!--        <module>zuulsvr</module>-->
+        <module>zuulsvr</module>
         <module>user-service</module>
         <module>file-system-service</module>
 <!--        <module>test-service</module>-->
