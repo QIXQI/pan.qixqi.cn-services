@@ -34,3 +34,7 @@
 
 ## TODO
 1. user表不与user_status，user_priority连接，返回响应信息，目前在配置类中实现
+
+## 版本控制
+### Spring 2.3.10.RELEASE
+### Spring Cloud Hoxton.SR8

@@ -8,7 +8,7 @@ import java.util.List;
 
 @Repository
 public interface FolderLinkRepository extends MongoRepository<FolderLink, String> {
-    public FolderLink findByFolderId(String folderId);
-    public List<FolderLink> findByUid(String uid);
-    public List<FolderLink> findAll();     // 测试或管理员使用
+    FolderLink findByFolderId(String folderId);
+    List<FolderLink> findByUid(String uid);
+    List<FolderLink> findAll();     // 测试或管理员使用
 }

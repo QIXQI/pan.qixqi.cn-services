@@ -8,6 +8,6 @@ import java.util.List;
 
 @Repository
 public interface TestRepository extends CrudRepository<TestTable, String> {
-    public TestTable findByUid(String uid);
-    public List<TestTable> findAll();
+    TestTable findByUid(String uid);
+    List<TestTable> findAll();
 }

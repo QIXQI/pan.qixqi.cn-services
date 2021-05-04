@@ -1,11 +1,12 @@
 spring:
   application:
     name: filesystemservice
-#  profiles:
-#    active: default
-#  cloud:
-#    config:
-#      uri: http://localhost:8000
-#      name: ${spring.application.name}
-#      profile: ${spring.profiles.active}
-#      label: master
+  profiles:
+    active: default
+  cloud:
+    config:
+      uri: http://localhost:8000
+      name: ${spring.application.name}
+      profile: ${spring.profiles.active}
+      label: master
+      enabled: false
