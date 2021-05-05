@@ -11,6 +11,7 @@
 #### Spring Eureka 
 
 #### OAuth2 & JSON Web Token
+* Spring Security5.39 需要对客户端密钥和用户密码加密（辛酸，找了一天Bug）
 
 #### Open Zipkin
 
@@ -37,4 +38,4 @@
 
 ## 版本控制
 ### Spring 2.3.10.RELEASE
-### Spring Cloud Hoxton.SR8
+### Spring Cloud Hoxton.SR11

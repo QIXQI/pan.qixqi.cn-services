@@ -21,29 +21,11 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-
-    <!-- 引入所需依赖 -->
-    <!-- 根目录没有SpringBootApplication，依赖注入到服务模块中即可
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
-    -->
-
-
     <!-- 导入模块服务，模块以 jar方式打包 -->
     <modules>
-<!--        <module>authentication-service</module>-->
         <module>confsvr</module>
         <module>eurekasvr</module>
+        <module>authentication-service</module>
 <!--        <module>zipkinsvr</module>-->
         <module>zuulsvr</module>
         <module>user-service</module>
@@ -57,7 +39,6 @@
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
-
 
     <build>
         <plugins>

@@ -1,17 +1,9 @@
 spring:
   application:
-    name: testservice
-#  profiles:
-#    active: dev
-#  cloud:
-#    config:
-#      uri: http://localhost:8000
-#      name: testservice
-#      profile: default
-#      label: master
-
-example:
-  property: "分为五个个人"
-
-server:
-  port: 9000
+    name: authenticationservice
+  profiles:
+    active:
+      default
+  cloud:
+    config:
+      enabled: false

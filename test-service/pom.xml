@@ -3,12 +3,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>cn.qixqi.pan</groupId>
-    <artifactId>testservice</artifactId>
+    <artifactId>authentication-service</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>test-service</name>
-    <description>Test Service</description>
+    <name>authentication-service</name>
+    <description>Authentication Service</description>
 
     <!-- 父依赖 -->
     <parent>
@@ -37,6 +37,17 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+        <!-- Spring Actuator 提供开箱即用的运维端点 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-config</artifactId>
@@ -47,13 +58,35 @@
             <artifactId>spring-cloud-config-client</artifactId>
         </dependency>
 
-        <!--
+        <!--    <dependency>-->
+        <!--      <groupId>org.springframework.cloud</groupId>-->
+        <!--      <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>-->
+        <!--    </dependency>-->
+
+        <!--    <dependency>-->
+        <!--      <groupId>org.springframework.cloud</groupId>-->
+        <!--      <artifactId>spring-cloud-security</artifactId>-->
+        <!--    </dependency>-->
+
+        <!--    <dependency>-->
+        <!--      <groupId>org.springframework.security.oauth</groupId>-->
+        <!--      <artifactId>spring-security-oauth2</artifactId>-->
+        <!--    </dependency>-->
+
+        <!--    <dependency>-->
+        <!--      <groupId>org.springframework.security</groupId>-->
+        <!--      <artifactId>spring-security-jwt</artifactId>-->
+        <!--    </dependency>-->
+
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-bootstrap</artifactId>
+            <artifactId>spring-cloud-starter-oauth2</artifactId>
         </dependency>
-        -->
 
+        <dependency>
+            <groupId>org.springframework.security.oauth.boot</groupId>
+            <artifactId>spring-security-oauth2-autoconfigure</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>junit</groupId>
@@ -68,7 +101,7 @@
         <java.version>1.8</java.version>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
-        <start-class>cn.qixqi.pan.test.Application</start-class>
+        <start-class>cn.qixqi.pan.authentication.AuthApplication</start-class>
     </properties>
 
     <build>
@@ -80,5 +113,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

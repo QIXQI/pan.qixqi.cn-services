@@ -26,6 +26,7 @@ zuul:
   routes:
     userservice: /user/**
     filesystemservice: /filesystem/**
+    authenticationservice: /auth/**
   ignored-services: "*"
   prefix: /api
 # Zuul 超时配置

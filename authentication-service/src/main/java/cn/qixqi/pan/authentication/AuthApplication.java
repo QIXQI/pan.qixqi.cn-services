@@ -1,4 +1,4 @@
-package cn.qixqi.pan.test;
+package cn.qixqi.pan.authentication;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,22 +13,24 @@ import java.util.HashMap;
 import java.util.Map;
 
 @SpringBootApplication
+@EnableAuthorizationServer
 @RestController
 @EnableResourceServer
-@EnableAuthorizationServer
-public class Application {
-    @RequestMapping(value = { "/user" }, produces = "application/json")
-    public Map<String, Object> user(OAuth2Authentication user) {
+public class AuthApplication {
+    @RequestMapping(value = {"/user"}, produces = "application/json")
+    public Map<String, Object> user(OAuth2Authentication user){
         Map<String, Object> userInfo = new HashMap<>();
-        userInfo.put("user", user.getUserAuthentication().getPrincipal());
-        userInfo.put("authorities", AuthorityUtils.authorityListToSet(user.getUserAuthentication().getAuthorities()));
+        userInfo.put(
+                "user",
+                user.getUserAuthentication().getPrincipal());
+        userInfo.put(
+                "authorities",
+                AuthorityUtils.authorityListToSet(
+                        user.getUserAuthentication().getAuthorities()));
         return userInfo;
     }
 
-
-    public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+    public static void main(String[] args){
+        SpringApplication.run(AuthApplication.class, args);
     }
-
-
 }
