@@ -6,12 +6,16 @@ import cn.qixqi.pan.fs.service.FileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
 @RestController
 @RequestMapping(value = "filesystem")
 public class FileController {
+
+    private static final Logger logger = LoggerFactory.getLogger(FileController.class);
 
     @Autowired
     private ServiceConfig serviceConfig;
@@ -21,6 +25,8 @@ public class FileController {
 
     @RequestMapping(value = "/example", method = RequestMethod.GET)
     public String example(){
+        logger.debug("In FileController, call example()");
+        logger.info("In FileController, call example()");
         return serviceConfig.getExampleProperty();
     }
 
@@ -31,6 +37,8 @@ public class FileController {
 
     @RequestMapping(value = "/file", method = RequestMethod.GET)
     public List<File> getFiles(){
+        logger.debug("In FileController, call getFiles()");
+        logger.info("In FileController, call getFiles()");
         return fileService.getFiles();
     }
 

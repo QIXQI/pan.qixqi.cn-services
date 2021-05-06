@@ -20,6 +20,14 @@ spring:
       test-while-idle: true
       validation-query: "SELECT 1"
     initialization-mode: never
+  # Spring Sleuth & Zipkin
+  zipkin:
+    base-url: http://localhost:9411
+  sleuth:
+    sampler:
+      probability: 1.0    # 跟踪全部事务
+
+
 
 # Spring Actuator
 management:
@@ -51,3 +59,8 @@ security:
 jwt:
   signing:
     key: "345345fsdgsf5345"
+
+
+
+
+

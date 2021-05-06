@@ -2,6 +2,8 @@ package cn.qixqi.pan.fs.controller;
 
 import cn.qixqi.pan.fs.model.FolderLink;
 import cn.qixqi.pan.fs.service.FolderLinkService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +13,8 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "filesystem/folderLink")
 public class FolderLinkController {
+
+    private static final Logger logger = LoggerFactory.getLogger(FolderLinkController.class);
 
     @Autowired
     private FolderLinkService folderLinkService;
@@ -31,6 +35,7 @@ public class FolderLinkController {
      */
     @RequestMapping(value = "", method = RequestMethod.GET)
     public List<FolderLink> getAllFolderLink(){
+        logger.debug("In FolderLinkController, call getAllFolderLink()");
         return folderLinkService.getAllFolderLink();
     }
 

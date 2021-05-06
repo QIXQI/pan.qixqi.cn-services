@@ -23,11 +23,11 @@
 
     <!-- 导入模块服务，模块以 jar方式打包 -->
     <modules>
-        <module>confsvr</module>
-        <module>eurekasvr</module>
-        <module>authentication-service</module>
-<!--        <module>zipkinsvr</module>-->
-        <module>zuulsvr</module>
+<!--        <module>confsvr</module>-->
+<!--        <module>eurekasvr</module>-->
+<!--        <module>authentication-service</module>-->
+        <module>zipkinsvr</module>
+<!--        <module>zuulsvr</module>-->
         <module>user-service</module>
         <module>file-system-service</module>
 <!--        <module>test-service</module>-->

@@ -1,0 +1,9 @@
+server:
+  port: 9411
+
+# 不加报错：Prometheus requires that all meters with the same name have the same set of tag keys
+management:
+  metrics:
+    web:
+      server:
+        auto-time-requests: false
