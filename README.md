@@ -19,6 +19,9 @@
 
 #### file-system-service
 
+#### Spring Cloud Stream & Kafka
+* 生产者和消费者部署主机，需要配置 /etc/hosts 文件，指向kafka服务器ip
+
 
 ### 数据库优化
 #### 垂直分片

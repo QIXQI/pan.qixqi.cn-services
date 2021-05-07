@@ -1,16 +1,26 @@
 package cn.qixqi.pan.fs;
 
 import cn.qixqi.pan.fs.config.ServiceConfig;
+import cn.qixqi.pan.fs.event.OutBoundChannel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.stream.annotation.EnableBinding;
+import org.springframework.cloud.stream.messaging.Source;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
+import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
+import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
+import org.springframework.data.redis.serializer.RedisSerializer;
+import org.springframework.data.redis.serializer.StringRedisSerializer;
 import org.springframework.data.repository.init.Jackson2RepositoryPopulatorFactoryBean;
 
 
 @SpringBootApplication
+@EnableBinding(OutBoundChannel.class)        // 将程序绑定到消息代理
 public class FileSystemApplication {
 
     @Autowired
@@ -36,7 +46,39 @@ public class FileSystemApplication {
         return factory;
     }
 
+    /**
+     * 设置到Redis服务器的实际数据库连接
+     * @return
+     */
+    @Bean
+    public JedisConnectionFactory jedisConnectionFactory(){
+        RedisStandaloneConfiguration standaloneConfiguration = new RedisStandaloneConfiguration();
+        standaloneConfiguration.setHostName(config.getRedisServer());
+        standaloneConfiguration.setPort(config.getRedisPort());
+        standaloneConfiguration.setPassword(config.getRedisPassword());
+        JedisConnectionFactory jedisConnectionFactory = new JedisConnectionFactory(standaloneConfiguration);
+        return jedisConnectionFactory;
+    }
 
+    /**
+     * 创建 RedisTemplate，对Redis服务器执行操作
+     * @return
+     */
+    @Bean
+    public RedisTemplate<String, Object> redisTemplate(){
+        RedisTemplate<String, Object> template = new RedisTemplate<String, Object>();
+        template.setConnectionFactory(jedisConnectionFactory());
+
+        // 序列化，防止使用默认jdk序列化，造成乱码
+        RedisSerializer serializer = new StringRedisSerializer();
+        template.setKeySerializer(serializer);
+        template.setValueSerializer(serializer);
+        template.setHashKeySerializer(new GenericJackson2JsonRedisSerializer());
+        template.setHashValueSerializer(new GenericJackson2JsonRedisSerializer());
+        template.afterPropertiesSet();
+
+        return template;
+    }
 
     public static void main(String[] args){
         SpringApplication.run(FileSystemApplication.class, args);

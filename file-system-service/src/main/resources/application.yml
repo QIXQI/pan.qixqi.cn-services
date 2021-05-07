@@ -13,6 +13,19 @@ spring:
   sleuth:
     sampler:
       probability: 1.0    # 跟踪全部事务
+  cloud:
+    # 消息队列配置
+    stream:
+      bindings:
+        outBoundFS:
+          destination: testTopic          # 消息队列名称
+          content-type: application/json  # 消息类型
+      kafka:
+        binder:
+          # Kafka 和 ZooKeeper 的地址
+          zkNodes: ping.qixqi.cn:2181
+          brokers: ping.qixqi.cn:9092
+
 
 
 # 是否初始化 mongodb
@@ -48,3 +61,9 @@ eureka:
 logging:
   level:
     cn.qixqi.pan: DEBUG
+
+# Redis
+redis:
+  server: ping.qixqi.cn
+  port: 6379
+  password: 1214

@@ -1,5 +1,6 @@
 package cn.qixqi.pan.fs.service;
 
+import cn.qixqi.pan.fs.event.source.SimpleSourceBean;
 import cn.qixqi.pan.fs.model.File;
 import cn.qixqi.pan.fs.repository.FileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,11 +14,15 @@ public class FileService {
     @Autowired
     private FileRepository fileRepository;
 
+    @Autowired
+    private SimpleSourceBean simpleSourceBean;
+
     public File getFileById(String fileId){
         return fileRepository.findByFileId(fileId);
     }
 
     public List<File> getFiles(){
+        simpleSourceBean.publishMsg();
         return fileRepository.findAll();
     }
 

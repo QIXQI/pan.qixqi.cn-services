@@ -35,7 +35,7 @@ public class FolderLinkController {
      */
     @RequestMapping(value = "", method = RequestMethod.GET)
     public List<FolderLink> getAllFolderLink(){
-        logger.debug("In FolderLinkController, call getAllFolderLink()");
+//        logger.debug("In FolderLinkController, call getAllFolderLink()");
         return folderLinkService.getAllFolderLink();
     }
 

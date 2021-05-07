@@ -2,6 +2,7 @@ package cn.qixqi.pan.fs.controller;
 
 import cn.qixqi.pan.fs.config.ServiceConfig;
 import cn.qixqi.pan.fs.model.File;
+import cn.qixqi.pan.fs.repository.FileRedisRepository;
 import cn.qixqi.pan.fs.service.FileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,22 +24,32 @@ public class FileController {
     @Autowired
     private FileService fileService;
 
+    @Autowired
+    private FileRedisRepository fileRedisRepository;
+
+    @RequestMapping(value = "/redis/{fileId}", method = RequestMethod.GET)
+    public File redis(@PathVariable String fileId){
+        return fileRedisRepository.findFile(fileId);
+    }
+
     @RequestMapping(value = "/example", method = RequestMethod.GET)
     public String example(){
-        logger.debug("In FileController, call example()");
-        logger.info("In FileController, call example()");
+//        logger.debug("In FileController, call example()");
+//        logger.info("In FileController, call example()");
         return serviceConfig.getExampleProperty();
     }
 
     @RequestMapping(value = "/file/{fileId}", method = RequestMethod.GET)
     public File getFileById(@PathVariable String fileId){
-        return fileService.getFileById(fileId);
+        File file = fileService.getFileById(fileId);
+        fileRedisRepository.saveFile(file);
+        return file;
     }
 
     @RequestMapping(value = "/file", method = RequestMethod.GET)
     public List<File> getFiles(){
-        logger.debug("In FileController, call getFiles()");
-        logger.info("In FileController, call getFiles()");
+//        logger.debug("In FileController, call getFiles()");
+//        logger.info("In FileController, call getFiles()");
         return fileService.getFiles();
     }
 
