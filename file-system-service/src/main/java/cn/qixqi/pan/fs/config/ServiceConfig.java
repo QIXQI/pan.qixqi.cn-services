@@ -26,6 +26,15 @@ public class ServiceConfig {
     @Value("${redis.password}")
     private String redisPassword;
 
+    @Value("${user-context.key.trace-id}")
+    private String ctxKeyTraceId;
+
+    @Value("${user-context.key.auth-token}")
+    private String ctxKeyAuthToken;
+
+    @Value("${user-context.key.uid}")
+    private String ctxKeyUid;
+
     public String getExampleProperty(){
         return this.exampleProperty;
     }
@@ -52,5 +61,17 @@ public class ServiceConfig {
 
     public String getRedisPassword(){
         return this.redisPassword;
+    }
+
+    public String getCtxKeyTraceId(){
+        return this.ctxKeyTraceId;
+    }
+
+    public String getCtxKeyAuthToken(){
+        return this.ctxKeyAuthToken;
+    }
+
+    public String getCtxKeyUid(){
+        return this.ctxKeyUid;
     }
 }

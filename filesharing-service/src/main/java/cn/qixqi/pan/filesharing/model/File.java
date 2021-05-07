@@ -1,12 +1,9 @@
-package cn.qixqi.pan.fs.model;
-
-import org.springframework.data.annotation.Id;
+package cn.qixqi.pan.filesharing.model;
 
 import java.util.Date;
 
 public class File {
 
-    @Id
     private String fileId;
     private String fileName;
     private String fileType;

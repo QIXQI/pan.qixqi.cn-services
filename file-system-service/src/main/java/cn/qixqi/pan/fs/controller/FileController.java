@@ -4,6 +4,7 @@ import cn.qixqi.pan.fs.config.ServiceConfig;
 import cn.qixqi.pan.fs.model.File;
 import cn.qixqi.pan.fs.repository.FileRedisRepository;
 import cn.qixqi.pan.fs.service.FileService;
+import cn.qixqi.pan.fs.util.UserContextHolder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -50,6 +51,7 @@ public class FileController {
     public List<File> getFiles(){
 //        logger.debug("In FileController, call getFiles()");
 //        logger.info("In FileController, call getFiles()");
+        logger.debug("FileController trace_id: " + UserContextHolder.get().getTraceId());
         return fileService.getFiles();
     }
 

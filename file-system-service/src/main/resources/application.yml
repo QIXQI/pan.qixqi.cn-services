@@ -67,3 +67,10 @@ redis:
   server: ping.qixqi.cn
   port: 6379
   password: 1214
+
+# UserContext
+user-context:
+  key:
+    trace-id: "trace_id"
+    auth-token: "auth_token"
+    uid: "uid"
