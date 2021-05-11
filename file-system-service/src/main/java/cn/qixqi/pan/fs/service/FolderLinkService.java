@@ -13,8 +13,8 @@ public class FolderLinkService {
     @Autowired
     private FolderLinkRepository folderLinkRepository;
 
-    public FolderLink getFolderLink(String folderId){
-        return folderLinkRepository.findByFolderId(folderId);
+    public FolderLink getFolderLink(String uid, String folderId){
+        return folderLinkRepository.findByFolderId(uid, folderId);
     }
 
     public List<FolderLink> getFolderLinks(String uid){
@@ -29,11 +29,11 @@ public class FolderLinkService {
         return folderLinkRepository.save(folderLink);
     }
 
-    public FolderLink updateFolderLink(FolderLink folderLink){
-        return folderLinkRepository.save(folderLink);
+    public void updateFolderLink(FolderLink folderLink){
+        folderLinkRepository.update(folderLink);
     }
 
-    public void deleteFolderLink(String folderId){
-        folderLinkRepository.deleteById(folderId);
+    public void deleteFolderLink(String uid, String folderId){
+        folderLinkRepository.deleteByFolderId(uid, folderId);
     }
 }

@@ -11,6 +11,8 @@ import org.springframework.cloud.stream.messaging.Source;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
+import org.springframework.data.redis.connection.RedisClusterConfiguration;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -18,6 +20,7 @@ import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSeriali
 import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 import org.springframework.data.repository.init.Jackson2RepositoryPopulatorFactoryBean;
+import redis.clients.jedis.JedisPoolConfig;
 
 
 @SpringBootApplication
@@ -27,6 +30,9 @@ public class FileSystemApplication {
 
     @Autowired
     private ServiceConfig config;
+
+    @Autowired
+    private RedisConnectionFactory redisConnectionFactory;
 
     /**
      * 初始化 Mongodb 数据库
@@ -41,7 +47,7 @@ public class FileSystemApplication {
             Resource initFile = new ClassPathResource(config.getDbMongoInitFile());
             // 初始化文件夹链接
             Resource initFolderLink = new ClassPathResource(config.getDbMongoInitFolderLink());
-            factory.setResources(new Resource[]{initFile, initFolderLink});
+            factory.setResources(new Resource[]{initFolderLink});
         } else {
             factory.setResources(new Resource[]{});
         }
@@ -52,15 +58,15 @@ public class FileSystemApplication {
      * 设置到Redis服务器的实际数据库连接
      * @return
      */
-    @Bean
-    public JedisConnectionFactory jedisConnectionFactory(){
-        RedisStandaloneConfiguration standaloneConfiguration = new RedisStandaloneConfiguration();
-        standaloneConfiguration.setHostName(config.getRedisServer());
-        standaloneConfiguration.setPort(config.getRedisPort());
-        standaloneConfiguration.setPassword(config.getRedisPassword());
-        JedisConnectionFactory jedisConnectionFactory = new JedisConnectionFactory(standaloneConfiguration);
-        return jedisConnectionFactory;
-    }
+//    @Bean
+//    public JedisConnectionFactory jedisConnectionFactory(){
+//        RedisStandaloneConfiguration standaloneConfiguration = new RedisStandaloneConfiguration();
+//        standaloneConfiguration.setHostName(config.getRedisServer());
+//        standaloneConfiguration.setPort(config.getRedisPort());
+//        standaloneConfiguration.setPassword(config.getRedisPassword());
+//        JedisConnectionFactory jedisConnectionFactory = new JedisConnectionFactory(standaloneConfiguration);
+//        return jedisConnectionFactory;
+//    }
 
     /**
      * 创建 RedisTemplate，对Redis服务器执行操作
@@ -69,7 +75,7 @@ public class FileSystemApplication {
     @Bean
     public RedisTemplate<String, Object> redisTemplate(){
         RedisTemplate<String, Object> template = new RedisTemplate<String, Object>();
-        template.setConnectionFactory(jedisConnectionFactory());
+        template.setConnectionFactory(redisConnectionFactory);
 
         // 序列化，防止使用默认jdk序列化，造成乱码
         RedisSerializer serializer = new StringRedisSerializer();

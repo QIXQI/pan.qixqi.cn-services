@@ -1,14 +1,21 @@
 package cn.qixqi.pan.fs.model;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
+import org.springframework.data.mongodb.core.mapping.Sharded;
+import org.springframework.data.mongodb.core.mapping.ShardingStrategy;
 
 import java.util.Date;
 
+@Document(collection = "folderLink")
+@Sharded(shardingStrategy = ShardingStrategy.HASH, shardKey = {"uid"})
 public class FolderLink {
 
     @Id
     private String folderId;
     private String folderName;
+    @Field("uid")
     private String uid;
     private String parent;
     private Date createTime;

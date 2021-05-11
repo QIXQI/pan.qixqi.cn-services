@@ -19,9 +19,9 @@ public class FolderLinkController {
     @Autowired
     private FolderLinkService folderLinkService;
 
-    @RequestMapping(value = "/{folderId}", method = RequestMethod.GET)
-    public FolderLink getFolderLink(@PathVariable String folderId){
-        return folderLinkService.getFolderLink(folderId);
+    @RequestMapping(value = "/user/{uid}/{folderId}", method = RequestMethod.GET)
+    public FolderLink getFolderLink(@PathVariable String uid, @PathVariable String folderId){
+        return folderLinkService.getFolderLink(uid, folderId);
     }
 
     @RequestMapping(value = "/user/{uid}", method = RequestMethod.GET)
@@ -45,14 +45,14 @@ public class FolderLinkController {
     }
 
     @RequestMapping(value = "", method = RequestMethod.PUT)
-    public FolderLink updateFolderLink(@RequestBody FolderLink folderLink){
-        return folderLinkService.updateFolderLink(folderLink);
+    public void updateFolderLink(@RequestBody FolderLink folderLink){
+        folderLinkService.updateFolderLink(folderLink);
     }
 
-    @RequestMapping(value = "/{folderId}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/user/{uid}/{folderId}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public String deleteFolderLink(@PathVariable String folderId){
-        folderLinkService.deleteFolderLink(folderId);
+    public String deleteFolderLink(@PathVariable String uid, @PathVariable String folderId){
+        folderLinkService.deleteFolderLink(uid, folderId);
         return String.format("删除：%s", folderId);
     }
 

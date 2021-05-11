@@ -17,14 +17,38 @@ public class ServiceConfig {
     @Value("${db.mongodb.init.folder_link}")
     private String dbMongoInitFolderLink;
 
-    @Value("${redis.server}")
-    private String redisServer;
+//    @Value("${redis.server}")
+//    private String redisServer;
+//
+//    @Value("${redis.port}")
+//    private String redisPort;
+//
+//    @Value("${redis.password}")
+//    private String redisPassword;
 
-    @Value("${redis.port}")
-    private String redisPort;
+    @Value("${spring.redis.cluster.nodes}")
+    private String redisNodes;
 
-    @Value("${redis.password}")
+    @Value("${spring.redis.cluster.max-redirects}")
+    private Integer redisMaxRedirects;
+
+    @Value("${spring.redis.password}")
     private String redisPassword;
+
+    @Value("${spring.redis.database}")
+    private Integer redisDatabase;
+
+    @Value("${spring.redis.jedis.pool.max-active}")
+    private Integer redisPoolMaxActive;
+
+    @Value("${spring.redis.jedis.pool.max-idle}")
+    private Integer redisPoolMaxIdle;
+
+    @Value("${spring.redis.jedis.pool.max-wait}")
+    private Long redisPoolMaxWait;
+
+    @Value("${spring.redis.jedis.pool.min-idle}")
+    private Integer redisPoolMinIdle;
 
     @Value("${user-context.key.trace-id}")
     private String ctxKeyTraceId;
@@ -51,16 +75,47 @@ public class ServiceConfig {
         return this.dbMongoInitFolderLink;
     }
 
-    public String getRedisServer(){
-        return this.redisServer;
+//    public String getRedisServer(){
+//        return this.redisServer;
+//    }
+//
+//    public Integer getRedisPort(){
+//        return new Integer(this.redisPort).intValue();
+//    }
+//
+//    public String getRedisPassword(){
+//        return this.redisPassword;
+//    }
+    public String getRedisNodes(){
+        return this.redisNodes;
     }
 
-    public Integer getRedisPort(){
-        return new Integer(this.redisPort).intValue();
+    public Integer getRedisMaxRedirects(){
+        return this.redisMaxRedirects;
     }
 
     public String getRedisPassword(){
         return this.redisPassword;
+    }
+
+    public Integer getRedisDatabase() {
+        return this.redisDatabase;
+    }
+
+    public Integer getRedisPoolMaxActive() {
+        return this.redisPoolMaxActive;
+    }
+
+    public Integer getRedisPoolMaxIdle() {
+        return this.redisPoolMaxIdle;
+    }
+
+    public Long getRedisPoolMaxWait() {
+        return this.redisPoolMaxWait;
+    }
+
+    public Integer getRedisPoolMinIdle() {
+        return this.redisPoolMinIdle;
     }
 
     public String getCtxKeyTraceId(){

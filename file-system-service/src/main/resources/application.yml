@@ -6,7 +6,7 @@ server:
 spring:
   data:
     mongodb:
-      uri: mongodb://admin:1214@ping.qixqi.cn:27017/pan?authSource=admin
+      uri: mongodb://pan:pan1214@ali.qixqi.cn:29017,ping.qixqi.cn:29017,ali3.qixqi.cn:29017/pan
   # Spring Sleuth & Zipkin
   zipkin:
     base-url: http://localhost:9411
@@ -25,6 +25,25 @@ spring:
           # Kafka 和 ZooKeeper 的地址
           zkNodes: ping.qixqi.cn:2181
           brokers: ping.qixqi.cn:9092
+  # Redis Cluster
+  redis:
+    cluster:
+      nodes: ali.qixqi.cn:6379,ping.qixqi.cn:6379,ali3.qixqi.cn:6379,ali4.qixqi.cn:6379,ali5.qixqi.cn:6379,ali6.qixqi.cn:6379
+      max-redirects: 2      # 最大重定向次数
+    lettuce:
+      pool:
+        max-idle: 16
+        max-active: 32
+        min-idle: 8
+    password: redis1214
+    database: 0
+    jedis:
+      pool:
+        max-active: 8
+        max-idle: 8
+        max-wait: -1
+        min-idle: 0
+
 
 
 
@@ -63,10 +82,12 @@ logging:
     cn.qixqi.pan: DEBUG
 
 # Redis
-redis:
-  server: ping.qixqi.cn
-  port: 6379
-  password: 1214
+#redis:
+#  server: ping.qixqi.cn
+#  port: 6379
+#  password: 1214
+
+
 
 # UserContext
 user-context:
