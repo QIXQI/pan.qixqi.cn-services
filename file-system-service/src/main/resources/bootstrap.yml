@@ -5,8 +5,8 @@ spring:
     active: default
   cloud:
     config:
-      uri: http://localhost:8000
+      uri: http://ali6.qixqi.cn:8000
       name: ${spring.application.name}
       profile: ${spring.profiles.active}
       label: master
-      enabled: false
+      enabled: true

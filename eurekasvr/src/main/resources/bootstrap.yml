@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: eurekasvr
+  profiles:
+    active: default
+  cloud:
+    config:
+      uri: http://ali6.qixqi.cn:8000
+      name: ${spring.application.name}
+      profile: ${spring.profiles.active}
+      label: master
+      enabled: true
