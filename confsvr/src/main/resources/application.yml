@@ -6,7 +6,7 @@ spring:
       server:
         git:
           uri: https://gitee.com/QIXQI/config-repo/
-          search-paths: userservice, testservice, filesystemservice, eurekasvr, zuulsvr
+          search-paths: userservice, testservice, filesystemservice, eurekasvr, zuulsvr, zipkinsvr
           # username:         # 私有库
           # password:         # 私有库
 

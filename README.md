@@ -14,6 +14,7 @@
 * Spring Security5.39 需要对客户端密钥和用户密码加密（辛酸，找了一天Bug）
 
 #### Open Zipkin
+* [TODO] Spring Boot 和 Spring Cloud 版本出现问题
 
 #### user-service
 
