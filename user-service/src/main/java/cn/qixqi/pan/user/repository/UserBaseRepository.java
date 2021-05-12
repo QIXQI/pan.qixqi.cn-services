@@ -9,5 +9,6 @@ public interface UserBaseRepository extends CrudRepository<UserBase, String> {
     UserBase findByPhoneNumberAndPassword(String phoneNumber, String password);
     UserBase findByUnameAndPassword(String uname, String password);
     UserBase findByEmailAndPassword(String email, String password);
+
     UserBase findByUid(String uid);
 }

@@ -88,6 +88,7 @@ public class UserService {
         return userExtRepository.save(userExt);
     }
 
+    /** 由于数据库存在外键，不需要手动删除 */
     public void deleteUserExt(String uid){
         userExtRepository.deleteById(uid);
     }

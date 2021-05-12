@@ -1,5 +1,6 @@
 package cn.qixqi.pan.authentication.security;
 
+import cn.qixqi.pan.authentication.service.PanUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -22,8 +23,10 @@ public class JWTOAuth2Config extends AuthorizationServerConfigurerAdapter {
     @Autowired
     private AuthenticationManager authenticationManager;
 
+//    @Autowired
+//    private UserDetailsService userDetailsService;
     @Autowired
-    private UserDetailsService userDetailsService;
+    private PanUserDetailsService panUserDetailsService;
 
     @Autowired
     private TokenStore tokenStore;
@@ -50,14 +53,14 @@ public class JWTOAuth2Config extends AuthorizationServerConfigurerAdapter {
                 .accessTokenConverter(jwtAccessTokenConverter)
                 .tokenEnhancer(tokenEnhancerChain)
                 .authenticationManager(authenticationManager)
-                .userDetailsService(userDetailsService);
+                .userDetailsService(panUserDetailsService);
     }
 
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception{
         clients.inMemory()
-                .withClient("eagleeye")
-                .secret(passwordEncoder.encode("thisissecret"))
+                .withClient("pan.qixqi.cn")
+                .secret(passwordEncoder.encode("thisissecretofpan"))
                 .authorizedGrantTypes("refresh_token", "password", "client_credentials")
                 .scopes("mobileclient");
     }
