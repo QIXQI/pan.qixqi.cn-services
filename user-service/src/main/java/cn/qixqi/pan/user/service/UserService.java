@@ -72,6 +72,10 @@ public class UserService {
         return userBaseRepository.save(userBase);
     }
 
+    public int updatePass(String uid, String oldPass, String newPass){
+        return userBaseRepository.updatePass(uid, oldPass, newPass);
+    }
+
     public void deleteUserBase(String uid){
         userBaseRepository.deleteById(uid);
     }

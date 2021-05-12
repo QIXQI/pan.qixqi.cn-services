@@ -14,7 +14,7 @@ public class UserExt {
     @Column(name = "uid", nullable = false)
     private String uid;
 
-    @Column(name = "avatar")
+    @Column(name = "avatar", insertable = false)
     private String avatar;
 
     public String getUid() {

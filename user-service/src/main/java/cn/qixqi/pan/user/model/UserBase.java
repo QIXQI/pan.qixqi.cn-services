@@ -19,31 +19,31 @@ public class UserBase {
     @Column(name = "uname", nullable = false)
     private String uname;
 
-    @Column(name = "password", nullable = false)
+    @Column(name = "password", nullable = false, updatable = false)     // updatable为false时，更新时用户对象可以不设密码
     private String password;
 
-    @Column(name = "email", nullable = true)
+    @Column(name = "email", nullable = true, insertable = false)        // insertable 为false时，默认值才生效
     private String email;
 
-    @Column(name = "priority_id")
+    @Column(name = "priority_id", insertable = false)
     private Integer priorityId;
 
-    @Column(name = "status_id")
+    @Column(name = "status_id", insertable = false)
     private Integer statusId;
 
-    @Column(name = "sex")
+    @Column(name = "sex", insertable = false)
     private char sex;
 
-    @Column(name = "disk_capacity")
+    @Column(name = "disk_capacity", insertable = false)
     private Integer diskCapacity;
 
-    @Column(name = "free_disk_capacity")
+    @Column(name = "free_disk_capacity", insertable = false)
     private double freeDiskCapacity;
 
-    @Column(name = "birthday")
+    @Column(name = "birthday", insertable = false)
     private Date birthday;
 
-    @Column(name = "join_time")
+    @Column(name = "join_time", insertable = false)
     private Date joinTime;
 
     public String getUid() {

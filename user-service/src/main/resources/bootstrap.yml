@@ -10,3 +10,8 @@ spring:
       profile: ${spring.profiles.active}
       label: master
       enabled: true
+
+# 部署在服务器中，需要指定公网IP
+eureka:
+  instance:
+    ip-address: ali.qixqi.cn

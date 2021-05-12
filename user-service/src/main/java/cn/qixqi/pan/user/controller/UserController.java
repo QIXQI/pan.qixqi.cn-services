@@ -55,6 +55,11 @@ public class UserController {
                 .withUserExt(userExt);
     }
 
+    @RequestMapping(value = "/{uid}", method = RequestMethod.PUT)
+    public int updatePass(@PathVariable String uid, @RequestParam String oldPass, @RequestParam String newPass){
+        return userService.updatePass(uid, oldPass, newPass);
+    }
+
     @RequestMapping(value = "/base", method = RequestMethod.PUT)
     public UserBase updateUserBase(@RequestBody UserBase userBase){
         return userService.updateUserBase(userBase);
