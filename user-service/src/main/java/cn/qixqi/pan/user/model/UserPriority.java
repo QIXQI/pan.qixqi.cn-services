@@ -16,6 +16,15 @@ public class UserPriority {
     @Column(name = "priority_name", nullable = false)
     private String priorityName;
 
+    public UserPriority(){
+
+    }
+
+    public UserPriority(Integer priorityId, String priorityName) {
+        this.priorityId = priorityId;
+        this.priorityName = priorityName;
+    }
+
     public Integer getPriorityId() {
         return priorityId;
     }

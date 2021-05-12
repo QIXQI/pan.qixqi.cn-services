@@ -30,6 +30,9 @@
 * 用户表：为经常使用登录的手机号建立索引
 * file_link表：为了避免表的join，采用反范式编程，通过一些数据冗余，以空间换取时间，提高性能
 * [TODO] file_share表：没有采用数据冗余，逻辑上与 file_link 表join
+* [TODO] 注册时，用户表默认值不起作用
+* [TODO] 更新用户表时，密码也必须提供
+* [TODO] 登录时，不是提交json，而是使用表单数据 @RequestParam
 
 #### 文件信息使用 mongodb存储
 * 使用 json文件，初始化mongodb，两点改动：

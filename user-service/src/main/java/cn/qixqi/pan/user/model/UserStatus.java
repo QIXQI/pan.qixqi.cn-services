@@ -15,6 +15,15 @@ public class UserStatus {
     @Column(name = "status_name", nullable = false)
     private String statusName;
 
+    public UserStatus(){
+
+    }
+
+    public UserStatus(Integer statusId, String statusName) {
+        this.statusId = statusId;
+        this.statusName = statusName;
+    }
+
     public Integer getStatusId() {
         return statusId;
     }
