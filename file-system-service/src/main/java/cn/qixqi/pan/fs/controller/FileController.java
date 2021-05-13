@@ -2,7 +2,6 @@ package cn.qixqi.pan.fs.controller;
 
 import cn.qixqi.pan.fs.config.ServiceConfig;
 import cn.qixqi.pan.fs.model.File;
-import cn.qixqi.pan.fs.repository.FileRedisRepository;
 import cn.qixqi.pan.fs.service.FileService;
 import cn.qixqi.pan.fs.util.UserContextHolder;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +13,7 @@ import org.slf4j.LoggerFactory;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "filesystem")
+@RequestMapping(value = "/v1/filesystem/file")
 public class FileController {
 
     private static final Logger logger = LoggerFactory.getLogger(FileController.class);
@@ -25,51 +24,30 @@ public class FileController {
     @Autowired
     private FileService fileService;
 
-    @Autowired
-    private FileRedisRepository fileRedisRepository;
-
-    @RequestMapping(value = "/redis/{fileId}", method = RequestMethod.GET)
-    public File redis(@PathVariable String fileId){
-        return fileRedisRepository.findFile(fileId);
-    }
-
-    @RequestMapping(value = "/example", method = RequestMethod.GET)
-    public String example(){
-//        logger.debug("In FileController, call example()");
-//        logger.info("In FileController, call example()");
-        return serviceConfig.getExampleProperty();
-    }
-
-    @RequestMapping(value = "/file/{fileId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{fileId}", method = RequestMethod.GET)
     public File getFileById(@PathVariable String fileId){
-        File file = fileService.getFileById(fileId);
-        fileRedisRepository.saveFile(file);
-        return file;
+        return fileService.getFileById(fileId);
     }
 
-    @RequestMapping(value = "/file", method = RequestMethod.GET)
+    @RequestMapping(value = "", method = RequestMethod.GET)
     public List<File> getFiles(){
-//        logger.debug("In FileController, call getFiles()");
-//        logger.info("In FileController, call getFiles()");
-        logger.debug("FileController trace_id: " + UserContextHolder.get().getTraceId());
+        // logger.debug("FileController trace_id: " + UserContextHolder.get().getTraceId());
         return fileService.getFiles();
     }
 
-    @RequestMapping(value = "/file", method = RequestMethod.POST)
+    @RequestMapping(value = "", method = RequestMethod.POST)
     public File addFile(@RequestBody File file){
         return fileService.addFile(file);
     }
 
-    @RequestMapping(value = "/file", method = RequestMethod.PUT)
+    @RequestMapping(value = "", method = RequestMethod.PUT)
     public File updateFile(@RequestBody File file){
         return fileService.updateFile(file);
     }
 
-    @RequestMapping(value = "/file/{fileId}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/{fileId}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public String deleteFile(@PathVariable String fileId){
         return fileService.deleteFile(fileId);
     }
-
-
 }

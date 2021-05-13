@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "filesystem/folderLink")
+@RequestMapping(value = "/v1/filesystem/folderLink")
 public class FolderLinkController {
 
     private static final Logger logger = LoggerFactory.getLogger(FolderLinkController.class);

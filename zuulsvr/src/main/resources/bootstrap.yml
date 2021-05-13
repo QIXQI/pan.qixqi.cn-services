@@ -5,7 +5,7 @@ spring:
     active: default
   cloud:
     config:
-      uri: http://ali6.qixqi.cn:8000
+      uri: http://47.106.227.188:8000   # ali6.qixqi.cn
       name: ${spring.application.name}
       profile: ${spring.profiles.active}
       label: master
@@ -14,4 +14,4 @@ spring:
 # 部署在服务器中，需要指定公网IP
 eureka:
   instance:
-    ip-address: ali4.qixqi.cn
+    ip-address: 39.99.136.157  # ali4.qixqi.cn

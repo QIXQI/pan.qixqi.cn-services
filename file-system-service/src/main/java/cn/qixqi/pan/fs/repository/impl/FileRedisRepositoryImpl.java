@@ -40,11 +40,6 @@ public class FileRedisRepositoryImpl implements FileRedisRepository {
     }
 
     @Override
-    public void updateFile(File file){
-        hashOperations.put(HASH_NAME, file.getFileId(), file);
-    }
-
-    @Override
     public File findFile(String fileId){
         return (File) hashOperations.get(HASH_NAME, fileId);
     }

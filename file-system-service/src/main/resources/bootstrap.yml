@@ -5,8 +5,13 @@ spring:
     active: default
   cloud:
     config:
-      uri: http://ali6.qixqi.cn:8000
+      uri: http://47.106.227.188:8000   # ali6.qixqi.cn
       name: ${spring.application.name}
       profile: ${spring.profiles.active}
       label: master
       enabled: true
+
+# 部署在服务器中，需要指定公网IP
+eureka:
+  instance:
+    ip-address: 119.23.237.44  #ali3.qixqi.cn

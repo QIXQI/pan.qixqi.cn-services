@@ -59,6 +59,9 @@ public class ServiceConfig {
     @Value("${user-context.key.uid}")
     private String ctxKeyUid;
 
+    @Value("${jwt.signing.key}")
+    private String jwtSigningKey;
+
     public String getExampleProperty(){
         return this.exampleProperty;
     }
@@ -128,5 +131,9 @@ public class ServiceConfig {
 
     public String getCtxKeyUid(){
         return this.ctxKeyUid;
+    }
+
+    public String getJwtSigningKey(){
+        return this.jwtSigningKey;
     }
 }

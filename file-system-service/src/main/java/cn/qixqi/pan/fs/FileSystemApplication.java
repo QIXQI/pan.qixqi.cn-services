@@ -20,12 +20,14 @@ import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSeriali
 import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 import org.springframework.data.repository.init.Jackson2RepositoryPopulatorFactoryBean;
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import redis.clients.jedis.JedisPoolConfig;
 
 
 @SpringBootApplication
 @EnableBinding(OutBoundChannel.class)        // 将程序绑定到消息代理
 @EnableCircuitBreaker                        // Hystrix 断路器模式
+@EnableResourceServer
 public class FileSystemApplication {
 
     @Autowired

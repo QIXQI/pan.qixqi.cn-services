@@ -63,4 +63,16 @@ public class File {
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
+
+    @Override
+    public String toString() {
+        return "File{" +
+                "fileId='" + fileId + '\'' +
+                ", fileName='" + fileName + '\'' +
+                ", fileType='" + fileType + '\'' +
+                ", fileSize=" + fileSize +
+                ", linkCount=" + linkCount +
+                ", createTime=" + createTime +
+                '}';
+    }
 }
