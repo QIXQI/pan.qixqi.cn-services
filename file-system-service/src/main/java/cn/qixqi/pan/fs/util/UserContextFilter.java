@@ -12,6 +12,7 @@ import java.io.IOException;
 
 @Component
 public class UserContextFilter implements Filter {
+
     private static final Logger logger = LoggerFactory.getLogger(UserContextFilter.class);
 
     @Autowired
@@ -26,8 +27,9 @@ public class UserContextFilter implements Filter {
         UserContextHolder.get().setUid(
                 httpServletRequest.getHeader(config.getCtxKeyUid()));
 
-        UserContextHolder.get().setTraceId("000000-001212-2232323");
-        logger.debug("UserContext trace_id: " + UserContextHolder.get().getTraceId());
+        logger.debug("UserContext trace_id: {}", UserContextHolder.get().getTraceId());
+        logger.debug("UserContext auth_token: {}", UserContextHolder.get().getAuthToken());
+        logger.debug("UserContext uid: {}", UserContextHolder.get().getUid());
 
         chain.doFilter(httpServletRequest, response);
     }

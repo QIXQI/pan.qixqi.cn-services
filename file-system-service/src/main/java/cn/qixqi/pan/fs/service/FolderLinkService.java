@@ -3,6 +3,7 @@ package cn.qixqi.pan.fs.service;
 import cn.qixqi.pan.fs.model.FolderLink;
 import cn.qixqi.pan.fs.repository.FolderLinkRedisRepository;
 import cn.qixqi.pan.fs.repository.FolderLinkRepository;
+import cn.qixqi.pan.fs.util.UserContextHolder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,13 @@ public class FolderLinkService {
     @Autowired
     private FolderLinkRedisRepository folderLinkRedisRepository;
 
-    public FolderLink getFolderLink(String uid, String folderId){
+    public FolderLink getFolderLink(String folderId){
+        String uid = UserContextHolder.get().getUid();
+        if (uid == null){
+            logger.error("UserContext.uid为空");
+            return null;
+        }
+
         // 缓存中获取
         FolderLink folderLink = folderLinkRedisRepository.getFolderLink(folderId);
         if (folderLink != null) {
@@ -38,7 +45,13 @@ public class FolderLinkService {
         return folderLink;
     }
 
-    public List<FolderLink> getFolderLinks(String uid){
+    public List<FolderLink> getFolderLinks(){
+        String uid = UserContextHolder.get().getUid();
+        if (uid == null){
+            logger.error("UserContext.uid为空");
+            return null;
+        }
+
         return folderLinkRepository.findByUid(uid);
     }
 
@@ -56,7 +69,13 @@ public class FolderLinkService {
         folderLinkRepository.update(folderLink);
     }
 
-    public void deleteFolderLink(String uid, String folderId){
+    public void deleteFolderLink(String folderId){
+        String uid = UserContextHolder.get().getUid();
+        if (uid == null){
+            logger.error("UserContext.uid为空");
+            return;
+        }
+
         // 删除缓存
         folderLinkRedisRepository.deleteFolderLink(folderId);
         folderLinkRepository.deleteByFolderId(uid, folderId);

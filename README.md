@@ -7,6 +7,7 @@
 #### Spring Cloud Config
     
 #### Netflix Zuul
+* [TODO] 第一次启动后，通过zuulsvr访问filesystemservice时，报错：504网关超时，可能与数据库连接有关，可以尝试连接池解决
 
 #### Spring Eureka 
 
@@ -21,7 +22,7 @@
 #### file-system-service
 
 #### Spring Cloud Stream & Kafka
-* 生产者和消费者部署主机，需要配置 /etc/hosts 文件，指向kafka服务器ip
+* ***生产者和消费者部署主机，需要配置 /etc/hosts 文件，指向kafka服务器ip***
 
 
 ### 数据库优化

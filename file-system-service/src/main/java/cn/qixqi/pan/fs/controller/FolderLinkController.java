@@ -19,14 +19,14 @@ public class FolderLinkController {
     @Autowired
     private FolderLinkService folderLinkService;
 
-    @RequestMapping(value = "/user/{uid}/{folderId}", method = RequestMethod.GET)
-    public FolderLink getFolderLink(@PathVariable String uid, @PathVariable String folderId){
-        return folderLinkService.getFolderLink(uid, folderId);
+    @RequestMapping(value = "/{folderId}", method = RequestMethod.GET)
+    public FolderLink getFolderLink(@PathVariable String folderId){
+        return folderLinkService.getFolderLink(folderId);
     }
 
-    @RequestMapping(value = "/user/{uid}", method = RequestMethod.GET)
-    public List<FolderLink> getFolderLinks(@PathVariable String uid){
-        return folderLinkService.getFolderLinks(uid);
+    @RequestMapping(value = "/user", method = RequestMethod.GET)
+    public List<FolderLink> getFolderLinks(){
+        return folderLinkService.getFolderLinks();
     }
 
     /**
@@ -49,11 +49,11 @@ public class FolderLinkController {
         folderLinkService.updateFolderLink(folderLink);
     }
 
-    @RequestMapping(value = "/user/{uid}/{folderId}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/{folderId}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public String deleteFolderLink(@PathVariable String uid, @PathVariable String folderId){
-        folderLinkService.deleteFolderLink(uid, folderId);
-        return String.format("删除：%s", folderId);
+    public String deleteFolderLink(@PathVariable String folderId){
+        folderLinkService.deleteFolderLink(folderId);
+        return String.format("删除文件夹链接：%s", folderId);
     }
 
 }

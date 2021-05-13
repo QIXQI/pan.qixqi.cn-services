@@ -18,6 +18,7 @@ public class ServiceConfig {
 
     private final UserPriority PRIORITY_NORMAL_USER = new UserPriority(0, "NORMAL_USER");
     private final UserPriority PRIORITY_VIP_USER = new UserPriority(1, "VIP_USER");
+    private final UserPriority PRIORITY_ADMIN = new UserPriority(2, "ADMIN");
 
     private final Map<Integer, String> PRIORITYMAP = new HashMap<Integer, String>();
 
@@ -34,6 +35,7 @@ public class ServiceConfig {
     private void init(){
         PRIORITYMAP.put(PRIORITY_NORMAL_USER.getPriorityId(), PRIORITY_NORMAL_USER.getPriorityName());
         PRIORITYMAP.put(PRIORITY_VIP_USER.getPriorityId(), PRIORITY_VIP_USER.getPriorityName());
+        PRIORITYMAP.put(PRIORITY_ADMIN.getPriorityId(), PRIORITY_ADMIN.getPriorityName());
     }
 
     public String getJwtSigningKey(){

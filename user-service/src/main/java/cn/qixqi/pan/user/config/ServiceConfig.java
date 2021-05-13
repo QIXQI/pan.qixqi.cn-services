@@ -20,6 +20,7 @@ public class ServiceConfig {
 
     private final UserPriority PRIORITY_NORMAL_USER = new UserPriority(0, "NORMAL_USER");
     private final UserPriority PRIORITY_VIP_USER = new UserPriority(1, "VIP_USER");
+    private final UserPriority PRIORITY_ADMIN = new UserPriority(2, "ADMIN");
 
     public String getExampleProperty(){
         return this.exampleProperty;
@@ -43,5 +44,9 @@ public class ServiceConfig {
 
     public UserPriority getPRIORITY_VIP_USER(){
         return this.PRIORITY_VIP_USER;
+    }
+
+    public UserPriority getPRIORITY_ADMIN(){
+        return this.PRIORITY_ADMIN;
     }
 }
