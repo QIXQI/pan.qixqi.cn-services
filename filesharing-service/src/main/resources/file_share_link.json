@@ -1,83 +1,98 @@
 [
   {
-    "share_id": "080516b2-49bd-48e7-b2ea-24046882d596",
-    "folder_id": "15cafc9e-3f8f-45c5-a0d5-62f840519b9a",
-    "folder_name": null,
+    "_class": "cn.qixqi.pan.filesharing.model.FileShareLink",
+    "folderId": "15cafc9e-3f8f-45c5-a0d5-62f840519b9a",
+    "shareId": "080516b2-49bd-48e7-b2ea-24046882d596",
+    "folderName": null,
     "parent": null,
     "children": {
+      "_class": "cn.qixqi.pan.filesharing.model.FolderChildren",
       "folders": [],
       "files": [
         {
-          "link_name": "test1.txt",
-          "file_id": "0e89415c-2a0c-45fb-a088-3464b2ba6e0f",
-          "file_type": "文本文档 (.txt)",
-          "file_size": 78848
+          "_class": "cn.qixqi.pan.filesharing.model.FileLink",
+          "linkName": "test1.txt",
+          "fileId": "0e89415c-2a0c-45fb-a088-3464b2ba6e0f",
+          "fileType": "文本文档 (.txt)",
+          "fileSize": 78848
         },
         {
-          "link_name": "test2.zip",
-          "file_id": "efd9f8c7-e4df-4764-952a-9ef542660954",
-          "file_type": "WinRAR ZIP 压缩文件 (.zip)",
-          "file_size": 38155018240
+          "_class": "cn.qixqi.pan.filesharing.model.FileLink",
+          "linkName": "test2.zip",
+          "fileId": "efd9f8c7-e4df-4764-952a-9ef542660954",
+          "fileType": "WinRAR ZIP 压缩文件 (.zip)",
+          "fileSize": 38155018240
         }
       ]
     }
   },
   {
-    "share_id": "e195f339-f20e-4694-a156-e0fc5bd9af2f",
-    "folder_id": "09fb719d-4e6c-43aa-ac37-0fbad74f66f7",
-    "folder_name": null,
+    "_class": "cn.qixqi.pan.filesharing.model.FileShareLink",
+    "folderId": "09fb719d-4e6c-43aa-ac37-0fbad74f66f7",
+    "shareId": "e195f339-f20e-4694-a156-e0fc5bd9af2f",
+    "folderName": null,
     "parent": null,
     "children": {
+      "_class": "cn.qixqi.pan.filesharing.model.FolderChildren",
       "folders": [
         {
-          "folder_id": "72d3fa27-940a-4284-acf2-e79e648eaebf",
-          "folder_name": "我的视频"
+          "_class": "cn.qixqi.pan.filesharing.model.SimpleFolderLink",
+          "folderId": "72d3fa27-940a-4284-acf2-e79e648eaebf",
+          "folderName": "我的视频"
         },
         {
-          "folder_id": "b67dabfe-6a7f-4b3f-8b1d-920fe86f864e",
-          "folder_name": "我的课件"
+          "_class": "cn.qixqi.pan.filesharing.model.SimpleFolderLink",
+          "folderId": "b67dabfe-6a7f-4b3f-8b1d-920fe86f864e",
+          "folderName": "我的课件"
         }
       ],
       "files": [
         {
-          "link_name": "test1.txt",
-          "file_id": "0e89415c-2a0c-45fb-a088-3464b2ba6e0f",
-          "file_type": "文本文档 (.txt)",
-          "file_size": 78848
+          "_class": "cn.qixqi.pan.filesharing.model.FileLink",
+          "linkName": "test1.txt",
+          "fileId": "0e89415c-2a0c-45fb-a088-3464b2ba6e0f",
+          "fileType": "文本文档 (.txt)",
+          "fileSize": 78848
         }
       ]
     }
   },
   {
-    "share_id": "e195f339-f20e-4694-a156-e0fc5bd9af2f",
-    "folder_id": "72d3fa27-940a-4284-acf2-e79e648eaebf",
-    "folder_name": "我的视频",
+    "_class": "cn.qixqi.pan.filesharing.model.FileShareLink",
+    "folderId": "72d3fa27-940a-4284-acf2-e79e648eaebf",
+    "shareId": "e195f339-f20e-4694-a156-e0fc5bd9af2f",
+    "folderName": "我的视频",
     "parent": "09fb719d-4e6c-43aa-ac37-0fbad74f66f7",
     "children": {
+      "_class": "cn.qixqi.pan.filesharing.model.FolderChildren",
       "folders": [],
       "files": [
         {
-          "link_name": "filename_H128PIC.jpg",
-          "file_id": "f262317f-6eec-49bf-826f-dd35eca82568",
-          "file_type": "JPG 文件 (.jpg)",
-          "file_size": 4723507
+          "_class": "cn.qixqi.pan.filesharing.model.FileLink",
+          "linkName": "filename_H128PIC.jpg",
+          "fileId": "f262317f-6eec-49bf-826f-dd35eca82568",
+          "fileType": "JPG 文件 (.jpg)",
+          "fileSize": 4723507
         }
       ]
     }
   },
   {
-    "share_id": "e195f339-f20e-4694-a156-e0fc5bd9af2f",
-    "folder_id": "b67dabfe-6a7f-4b3f-8b1d-920fe86f864e",
-    "folder_name": "我的课件",
+    "_class": "cn.qixqi.pan.filesharing.model.FileShareLink",
+    "folderId": "b67dabfe-6a7f-4b3f-8b1d-920fe86f864e",
+    "shareId": "e195f339-f20e-4694-a156-e0fc5bd9af2f",
+    "folderName": "我的课件",
     "parent": "09fb719d-4e6c-43aa-ac37-0fbad74f66f7",
     "children": {
+      "_class": "cn.qixqi.pan.filesharing.model.FolderChildren",
       "folders": [],
       "files": [
         {
-          "link_name": "560f_075e_535f_ae15cebedc04c39f79f6d5ac577f2977.mp3",
-          "file_id": "c47c0b7d-0413-4f3d-ab1c-bb47133eb4c4",
-          "file_type": "MP3 文件 (.mp3)",
-          "file_size": 4314218
+          "_class": "cn.qixqi.pan.filesharing.model.FileLink",
+          "linkName": "560f_075e_535f_ae15cebedc04c39f79f6d5ac577f2977.mp3",
+          "fileId": "c47c0b7d-0413-4f3d-ab1c-bb47133eb4c4",
+          "fileType": "MP3 文件 (.mp3)",
+          "fileSize": 4314218
         }
       ]
     }

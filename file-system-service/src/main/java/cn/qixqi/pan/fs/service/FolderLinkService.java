@@ -30,7 +30,7 @@ public class FolderLinkService {
         }
 
         // 缓存中获取
-        FolderLink folderLink = folderLinkRedisRepository.getFolderLink(folderId);
+        FolderLink folderLink = checkRedisCache(folderId);
         if (folderLink != null) {
             logger.debug("在Redis缓存中获取到文件夹链接：{}", folderLink.toString());
             return folderLink;

@@ -41,6 +41,9 @@
     * 新加 "_class"字段，并且最后mongodb中也保留此字段，据我思考，是因为mongodb是NoSQL，每条文档，都可以有不同的 "_class"类解析，还是很有必要的
     * [TODO] 由于json文件的每个对象，均可以存在关系型数据库中，可以设计自己的解析类，取消 "_class"字段存到mongodb中，节省空间
     * [TODO] FolderLinkService 中 getFolderLinks(String uid) 结果缓存
+    * [TODO] fileShare 集合，外人获取分享链接时，还需要分享人的uid，如何设计，加密？
+    * [TODO] fileShare 集合，更新失败，与片键有关。updatable = false ???
+    * [TODO] fileShareLink 集合，更新失败，与主键有关：重复主键
 
 ## TODO
 1. user表不与user_status，user_priority连接，返回响应信息，目前在配置类中实现

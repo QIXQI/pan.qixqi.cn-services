@@ -28,9 +28,9 @@
         <module>authentication-service</module>
 <!--        <module>zipkinsvr</module>-->
         <module>zuulsvr</module>
-        <module>user-service</module>
+<!--        <module>user-service</module>-->
         <module>file-system-service</module>
-<!--        <module>filesharing-service</module>-->
+        <module>filesharing-service</module>
 <!--        <module>test-service</module>-->
     </modules>
 

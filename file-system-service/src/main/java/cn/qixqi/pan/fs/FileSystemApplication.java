@@ -49,7 +49,7 @@ public class FileSystemApplication {
             Resource initFile = new ClassPathResource(config.getDbMongoInitFile());
             // 初始化文件夹链接
             Resource initFolderLink = new ClassPathResource(config.getDbMongoInitFolderLink());
-            factory.setResources(new Resource[]{initFolderLink});
+            factory.setResources(new Resource[]{initFile, initFolderLink});
         } else {
             factory.setResources(new Resource[]{});
         }

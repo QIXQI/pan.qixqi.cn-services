@@ -9,4 +9,9 @@ spring:
       name: ${spring.application.name}
       profile: ${spring.profiles.active}
       label: master
-      enabled: false
+      enabled: true
+
+# 部署在服务器中，需要指定公网IP
+eureka:
+  instance:
+    ip-address: 106.13.127.149  # baidu.qixqi.cn

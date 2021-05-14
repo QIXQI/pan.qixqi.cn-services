@@ -1,18 +1,20 @@
 [
   {
-    "share_id": "080516b2-49bd-48e7-b2ea-24046882d596",
-    "share_pass": "03a4",
+    "_class": "cn.qixqi.pan.filesharing.model.FileShare",
+    "shareId": "080516b2-49bd-48e7-b2ea-24046882d596",
+    "sharePass": "03a4",
     "uid": "f3831f8c-c338-4ebe-a82a-e2fc1d1ff78a",
-    "root_id": "15cafc9e-3f8f-45c5-a0d5-62f840519b9a",
-    "create_time": 1619801056654,
-    "active_time": 7
+    "rootId": "15cafc9e-3f8f-45c5-a0d5-62f840519b9a",
+    "createTime": 1619801056654,
+    "activeTime": 7
   },
   {
-    "share_id": "e195f339-f20e-4694-a156-e0fc5bd9af2f",
-    "share_pass": "ef24",
+    "_class": "cn.qixqi.pan.filesharing.model.FileShare",
+    "shareId": "e195f339-f20e-4694-a156-e0fc5bd9af2f",
+    "sharePass": "ef24",
     "uid": "f3831f8c-c338-4ebe-a82a-e2fc1d1ff78a",
-    "root_id": "",
-    "create_time": 1619801131667,
-    "active_time": 7
+    "rootId": "09fb719d-4e6c-43aa-ac37-0fbad74f66f7",
+    "createTime": 1619801131667,
+    "activeTime": 7
   }
 ]
