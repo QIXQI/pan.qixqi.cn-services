@@ -18,6 +18,8 @@
 * [TODO] Spring Boot 和 Spring Cloud 版本出现问题
 
 #### user-service
+* [TODO] 用户服务数据库实体类设计有些问题，可以采取表联合的方式，不需要分两次获取数据库内容，可以采用 JpaRepository
+* [TODO] 删除用户时，通过异步消息，删除filesystemservice和filesharingservice中相关信息
 
 #### file-system-service
 
