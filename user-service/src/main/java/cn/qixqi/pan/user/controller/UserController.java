@@ -9,12 +9,36 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 
+
 @RestController
 @RequestMapping(value = "/v1/user")
 public class UserController {
 
     @Autowired
     private UserService userService;
+
+    /**
+     * 测试使用
+     * @return
+     */
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    public User test(){
+        UserBase userBase = new UserBase();
+        userBase.withUid("000000-0000-0000-000000000000")
+                .withUname("Test")
+                .withPhoneNumber("00000000000")
+                .withEmail("test@qixqi.cn")
+                .withBirthday(null)
+                .withBirthday(null)
+                .withFreeDiskCapacity(100)
+                .withDiskCapacity(100)
+                .withSex('m')
+                .withStatusId(0)
+                .withPriorityId(0)
+                .withPassword(null);
+        return new User().withUserBase(userBase)
+                .withAvatar("defalut.png");
+    }
 
     @RequestMapping(value = "", method = RequestMethod.POST)
     public User register(@RequestBody UserBase userBase){

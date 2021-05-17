@@ -14,6 +14,7 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
                 .authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/v1/user").permitAll()           // 注册，允许所有人
                 .antMatchers(HttpMethod.POST, "/v1/user/login").permitAll()     // 登录，允许所有人
+                .antMatchers(HttpMethod.GET, "/v1/user/test").permitAll()       // 测试，允许所有人
                 .anyRequest().authenticated();          // 其余任何请求，都需要权限
     }
 }
