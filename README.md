@@ -23,6 +23,7 @@
 
 #### file-system-service
 * [TODO] File 表的 url，目前都可以访问，后续需要验证，需要重构 user_priority 表
+* [TODO] 初始化时：No repository found for domain type: class cn.qixqi.pan.fs.model.FolderLink
 
 #### Spring Cloud Stream & Kafka
 * ***生产者和消费者部署主机，需要配置 /etc/hosts 文件，指向kafka服务器ip***

@@ -48,8 +48,11 @@ public class FileSystemApplication {
             // 初始化文件实体
             Resource initFile = new ClassPathResource(config.getDbMongoInitFile());
             // 初始化文件夹链接
+            // No repository found for domain type: class cn.qixqi.pan.fs.model.FolderLink
             Resource initFolderLink = new ClassPathResource(config.getDbMongoInitFolderLink());
-            factory.setResources(new Resource[]{initFile, initFolderLink});
+            // 初始化 file_md5 集合
+            Resource initFileMd5 = new ClassPathResource(config.getDbMongoInitFileMd5());
+            factory.setResources(new Resource[]{initFile, initFolderLink, initFileMd5});
         } else {
             factory.setResources(new Resource[]{});
         }

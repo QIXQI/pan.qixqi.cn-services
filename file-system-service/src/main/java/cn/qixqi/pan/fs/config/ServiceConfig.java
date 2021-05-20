@@ -14,6 +14,9 @@ public class ServiceConfig {
     @Value("${db.mongodb.init.file}")
     private String dbMongoInitFile;
 
+    @Value("${db.mongodb.init.file_md5}")
+    private String dbMongoInitFileMd5;
+
     @Value("${db.mongodb.init.folder_link}")
     private String dbMongoInitFolderLink;
 
@@ -72,6 +75,10 @@ public class ServiceConfig {
 
     public String getDbMongoInitFile(){
         return this.dbMongoInitFile;
+    }
+
+    public String getDbMongoInitFileMd5(){
+        return this.dbMongoInitFileMd5;
     }
 
     public String getDbMongoInitFolderLink(){

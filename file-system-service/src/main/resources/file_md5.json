@@ -1,0 +1,22 @@
+[
+  {
+    "_class": "cn.qixqi.pan.fs.model.FileMd5",
+    "md5": "e5ddf52271b644d0cb5aad57fe2a02ba",
+    "fileId": "0e89415c-2a0c-45fb-a088-3464b2ba6e0f"
+  },
+  {
+    "_class": "cn.qixqi.pan.fs.model.FileMd5",
+    "md5": "68139f1338605d7cb64b55b1b3700725",
+    "fileId": "efd9f8c7-e4df-4764-952a-9ef542660954"
+  },
+  {
+    "_class": "cn.qixqi.pan.fs.model.FileMd5",
+    "md5": "9fcb2308d3ac67fbffc7f840a1229033",
+    "fileId": "f262317f-6eec-49bf-826f-dd35eca82568"
+  },
+  {
+    "_class": "cn.qixqi.pan.fs.model.FileMd5",
+    "md5": "f800d8c27d0dd4844564e61913a5792a",
+    "fileId": "c47c0b7d-0413-4f3d-ab1c-bb47133eb4c4"
+  }
+]
