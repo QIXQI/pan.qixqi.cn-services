@@ -15,6 +15,7 @@ public class File {
     private long fileSize;
     private int linkCount;
     private Date createTime;
+    private String url;
 
     public String getFileId() {
         return fileId;
@@ -64,6 +65,14 @@ public class File {
         this.createTime = createTime;
     }
 
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
     @Override
     public String toString() {
         return "File{" +
@@ -73,6 +82,7 @@ public class File {
                 ", fileSize=" + fileSize +
                 ", linkCount=" + linkCount +
                 ", createTime=" + createTime +
+                ", url='" + url + '\'' +
                 '}';
     }
 }

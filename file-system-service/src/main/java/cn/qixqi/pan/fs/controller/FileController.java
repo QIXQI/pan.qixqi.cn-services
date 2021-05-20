@@ -24,6 +24,17 @@ public class FileController {
     @Autowired
     private FileService fileService;
 
+    @RequestMapping(value = "/{fileId}/url", method = RequestMethod.GET)
+    public String getFileUrl(@PathVariable String fileId){
+        File file = fileService.getFileById(fileId);
+        return file != null ? file.getUrl() : null;
+    }
+
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    public String test(){
+        return "test";
+    }
+
     @RequestMapping(value = "/{fileId}", method = RequestMethod.GET)
     public File getFileById(@PathVariable String fileId){
         return fileService.getFileById(fileId);

@@ -22,6 +22,7 @@
 * [TODO] 删除用户时，通过异步消息，删除filesystemservice和filesharingservice中相关信息
 
 #### file-system-service
+* [TODO] File 表的 url，目前都可以访问，后续需要验证，需要重构 user_priority 表
 
 #### Spring Cloud Stream & Kafka
 * ***生产者和消费者部署主机，需要配置 /etc/hosts 文件，指向kafka服务器ip***
