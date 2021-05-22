@@ -2,6 +2,7 @@ package cn.qixqi.pan.fs.controller;
 
 import cn.qixqi.pan.fs.model.FolderLink;
 import cn.qixqi.pan.fs.service.FolderLinkService;
+import com.alibaba.fastjson.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,4 +57,27 @@ public class FolderLinkController {
         return String.format("删除文件夹链接：%s", folderId);
     }
 
+    @RequestMapping(value = "/child/children", method = RequestMethod.POST)
+    public String addChildren(@RequestBody FolderLink folderLink){
+        long status = folderLinkService.addChildren(folderLink);
+        JSONObject object = new JSONObject();
+        object.put("status", status);
+        return object.toJSONString();
+    }
+
+    @RequestMapping(value = "/child/children", method = RequestMethod.DELETE)
+    public String deleteChildren(@RequestBody FolderLink folderLink){
+        long status = folderLinkService.deleteChildren(folderLink);
+        JSONObject object = new JSONObject();
+        object.put("status", status);
+        return object.toJSONString();
+    }
+
+    @RequestMapping(value = "/child/children", method = RequestMethod.PUT)
+    public String updateChildren(@RequestBody FolderLink folderLink){
+        long status = folderLinkService.updateChildren(folderLink);
+        JSONObject object = new JSONObject();
+        object.put("status", status);
+        return object.toJSONString();
+    }
 }

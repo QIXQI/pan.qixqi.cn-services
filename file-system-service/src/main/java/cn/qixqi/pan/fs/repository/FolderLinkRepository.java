@@ -11,4 +11,9 @@ public interface FolderLinkRepository{
     FolderLink save(FolderLink folderLink);
     void update(FolderLink folderLink);
     void deleteByFolderId(String uid, String folderId);
+
+    // 针对子文件夹和子文件
+    long addChildren(FolderLink folderLink);
+    long deleteChildren(FolderLink folderLink);
+    long updateChildren(FolderLink folderLink);
 }

@@ -10,6 +10,15 @@ public class FileMd5 {
     private String md5;
     private String fileId;
 
+    public FileMd5(){
+        super();
+    }
+
+    public FileMd5(String md5, String fileId) {
+        this.md5 = md5;
+        this.fileId = fileId;
+    }
+
     public String getMd5() {
         return md5;
     }

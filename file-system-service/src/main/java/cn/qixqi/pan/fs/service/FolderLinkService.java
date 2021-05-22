@@ -69,6 +69,39 @@ public class FolderLinkService {
         folderLinkRepository.update(folderLink);
     }
 
+    /**
+     * 添加子文件夹或子文件
+     * @param folderLink
+     * @return 修改行数
+     */
+    public long addChildren(FolderLink folderLink){
+        // 删除缓存
+        folderLinkRedisRepository.deleteFolderLink(folderLink.getFolderId());
+        return folderLinkRepository.addChildren(folderLink);
+    }
+
+    /**
+     * 删除子文件夹或子文件
+     * @param folderLink
+     * @return 修改行数
+     */
+    public long deleteChildren(FolderLink folderLink){
+        // 删除缓存
+        folderLinkRedisRepository.deleteFolderLink(folderLink.getFolderId());
+        return folderLinkRepository.deleteChildren(folderLink);
+    }
+
+    /**
+     * 一次只能更新一个子文件夹名或一个子文件名
+     * @param folderLink
+     * @return 修改行数
+     */
+    public long updateChildren(FolderLink folderLink){
+        // 删除缓存
+        folderLinkRedisRepository.deleteFolderLink(folderLink.getFolderId());
+        return folderLinkRepository.updateChildren(folderLink);
+    }
+
     public void deleteFolderLink(String folderId){
         String uid = UserContextHolder.get().getUid();
         if (uid == null){
