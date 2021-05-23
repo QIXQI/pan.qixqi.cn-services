@@ -12,6 +12,7 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
     public void configure(HttpSecurity http) throws Exception{
         http
                 .authorizeRequests()
+                .antMatchers(HttpMethod.POST, "/v1/filesystem/file").hasAuthority("NORMAL_USER")
                 .antMatchers(HttpMethod.GET, "/v1/filesystem/file/*/url").hasAuthority("NORMAL_USER")               // 文件url目前都可访问
                 .antMatchers(HttpMethod.GET, "/v1/filesystem/file/test").permitAll()
                 .antMatchers("/v1/filesystem/file/**").hasAuthority("ADMIN")    // 管理员获取文件实体

@@ -1,7 +1,10 @@
 package cn.qixqi.pan.fs.controller;
 
+import cn.qixqi.pan.fs.model.File;
 import cn.qixqi.pan.fs.model.FileMd5;
 import cn.qixqi.pan.fs.service.FileMd5Service;
+import cn.qixqi.pan.fs.service.FileService;
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import org.codehaus.jackson.map.util.JSONPObject;
 import org.slf4j.Logger;
@@ -22,6 +25,9 @@ public class FileMd5Controller {
     @Autowired
     private FileMd5Service fileMd5Service;
 
+    @Autowired
+    private FileService fileService;
+
     @RequestMapping(value = "/{md5}", method = RequestMethod.GET)
     public String getFileId(@PathVariable String md5){
         JSONObject object = new JSONObject();
@@ -29,7 +35,8 @@ public class FileMd5Controller {
         if (fileMd5 != null){
             // 文件已存在
             object.put("exist", "yes");
-            object.put("fileId", fileMd5.getFileId());
+            File file = fileService.getFileById(fileMd5.getFileId());
+            object.put("file", JSON.toJSONString(file));
         } else {
             // 文件不存在
             object.put("exist", "no");
