@@ -86,9 +86,12 @@ public class FolderLinkRepositoryImpl implements FolderLinkRepository {
         query.addCriteria(Criteria.where("uid").is(folderLink.getUid()));
 
         Update update = new Update();
-        update.push("children.folders").each(folderLink.getChildren().getFolders());
-        update.push("children.files").each(folderLink.getChildren().getFiles());
-
+        if (folderLink.getChildren().getFolders() != null){
+            update.push("children.folders").each(folderLink.getChildren().getFolders());
+        }
+        if (folderLink.getChildren().getFiles() != null){
+            update.push("children.files").each(folderLink.getChildren().getFiles());
+        }
         UpdateResult result = mongoTemplate.updateFirst(query, update, FolderLink.class);
         return result.getModifiedCount();
     }

@@ -1,6 +1,9 @@
 package cn.qixqi.pan.fs.service;
 
+import cn.qixqi.pan.fs.model.FileLink;
+import cn.qixqi.pan.fs.model.FolderChildren;
 import cn.qixqi.pan.fs.model.FolderLink;
+import cn.qixqi.pan.fs.model.SimpleFolderLink;
 import cn.qixqi.pan.fs.repository.FolderLinkRedisRepository;
 import cn.qixqi.pan.fs.repository.FolderLinkRepository;
 import cn.qixqi.pan.fs.util.UserContextHolder;
@@ -9,7 +12,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class FolderLinkService {
@@ -60,6 +65,9 @@ public class FolderLinkService {
     }
 
     public FolderLink addFolderLink(FolderLink folderLink){
+        // 为文件夹链接分配ID和创建时间
+        folderLink.setFolderId(UUID.randomUUID().toString());
+        folderLink.setCreateTime(new Date());
         return folderLinkRepository.save(folderLink);
     }
 
@@ -77,6 +85,14 @@ public class FolderLinkService {
     public long addChildren(FolderLink folderLink){
         // 删除缓存
         folderLinkRedisRepository.deleteFolderLink(folderLink.getFolderId());
+        FolderChildren children = folderLink.getChildren();
+        if (children.getFiles() != null){
+            // 为文件链接分配ID和创建时间
+            for (FileLink fileLink : children.getFiles()){
+                fileLink.setLinkId(UUID.randomUUID().toString());
+                fileLink.setCreateTime(new Date());
+            }
+        }
         return folderLinkRepository.addChildren(folderLink);
     }
 
