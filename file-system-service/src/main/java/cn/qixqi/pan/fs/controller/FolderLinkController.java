@@ -59,9 +59,7 @@ public class FolderLinkController {
 
     @RequestMapping(value = "/child/children", method = RequestMethod.POST)
     public String addChildren(@RequestBody FolderLink folderLink){
-        long status = folderLinkService.addChildren(folderLink);
-        JSONObject object = new JSONObject();
-        object.put("status", status);
+        JSONObject object = folderLinkService.addChildren(folderLink);
         return object.toJSONString();
     }
 

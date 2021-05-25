@@ -7,6 +7,7 @@ import cn.qixqi.pan.fs.model.SimpleFolderLink;
 import cn.qixqi.pan.fs.repository.FolderLinkRedisRepository;
 import cn.qixqi.pan.fs.repository.FolderLinkRepository;
 import cn.qixqi.pan.fs.util.UserContextHolder;
+import com.alibaba.fastjson.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -80,10 +81,11 @@ public class FolderLinkService {
     /**
      * 添加子文件夹或子文件
      * @param folderLink
-     * @return 修改行数
+     * @return 修改行数、添加的子文件夹列表和子文件列表
      */
-    public long addChildren(FolderLink folderLink){
+    public JSONObject addChildren(FolderLink folderLink){
         // 删除缓存
+        JSONObject object = new JSONObject();
         folderLinkRedisRepository.deleteFolderLink(folderLink.getFolderId());
         FolderChildren children = folderLink.getChildren();
         if (children.getFiles() != null){
@@ -93,7 +95,13 @@ public class FolderLinkService {
                 fileLink.setCreateTime(new Date());
             }
         }
-        return folderLinkRepository.addChildren(folderLink);
+        // 调用Dao模式
+        long status = folderLinkRepository.addChildren(folderLink);
+        object.put("status", status);
+        if (status > 0){
+            object.put("children", children);
+        }
+        return object;
     }
 
     /**
