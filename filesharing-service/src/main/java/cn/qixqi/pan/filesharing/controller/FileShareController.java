@@ -1,7 +1,10 @@
 package cn.qixqi.pan.filesharing.controller;
 
 import cn.qixqi.pan.filesharing.model.FileShare;
+import cn.qixqi.pan.filesharing.model.FileShareLink;
 import cn.qixqi.pan.filesharing.service.FileShareService;
+import com.alibaba.fastjson.JSONObject;
+import org.codehaus.jackson.map.util.JSONPObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +40,14 @@ public class FileShareController {
     @RequestMapping(value = "/fileShare", method = RequestMethod.POST)
     public FileShare addFileShare(@RequestBody FileShare fileShare){
         return fileShareService.addFileShare(fileShare);
+    }
+
+    @RequestMapping(value = "/fileShare/generator", method = RequestMethod.POST)
+    public String generateShare(@RequestBody FileShareLink fileShareLink){
+        JSONObject object = new JSONObject();
+        int status = fileShareService.generateShare(fileShareLink);
+        object.put("status", status);
+        return object.toJSONString();
     }
 
     @RequestMapping(value = "/fileShare", method = RequestMethod.PUT)
